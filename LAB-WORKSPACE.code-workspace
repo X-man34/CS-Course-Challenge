@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": "LabGuide"
+		},
+		{
+			"path": "Project2"
+		}
+	],
+	"settings": {
+		"files.exclude": {
+			"**/.git": true,
+			"**/.svn": true,
+			"**/.hg": true,
+			"**/CVS": true,
+			"**/.DS_Store": true,
+			"**/.placeholder": true,
+			"**/.gitkeep": true
+		},
+		"git.openRepositoryInParentFolders":"always"
+	}
+}
