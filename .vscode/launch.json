@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "TextBookDriver",
+            "request": "launch",
+            "mainClass": "TextBookDriver",
+            "projectName": "CS-Course-Challenge_2cb76fb"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "C:\\Users\\Caleb\\defaultfolders\\Documents\\School\\Boise State University\\Semesters\\Fall 2024\\CS 121 Course challenge\\CS-Course-Challenge\\Project2\\PostUnitTester.java"

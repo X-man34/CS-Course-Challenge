@@ -9,6 +9,11 @@ import java.text.DecimalFormat;
 import java.time.Instant;
 import java.util.ArrayList;
 
+/**
+ * 
+ * This is a glorified data structure class that contins fields about a post as well as the methods needed to create and manage post files. 
+ * @author Caleb
+ */
 public class Post implements PostInterface{
 
 
@@ -76,11 +81,12 @@ public class Post implements PostInterface{
 
     }
     /**
-     * save the currnet post file in the format specified (personnaly I would use JSON for this)
+     * Save the currnet post file in the format specified, JSON is another option for this. 
      */
     private void save() {
         File file = new File(getFilename());
         try {
+            //will create files if they are not present
             if (file.isFile()) {
                 file.delete();
             }
@@ -148,6 +154,10 @@ public class Post implements PostInterface{
 
     }
 
+    /**
+     * again to keep the code DRY, I actually used this like 4 times or something. 
+     * @return
+     */
     public String getFormattedID() {
         DecimalFormat format = new DecimalFormat("00000");
         return format.format(postId);

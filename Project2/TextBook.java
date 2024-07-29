@@ -6,10 +6,20 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * This class contains code to magange the post ID file and handles low level post creation and deletion as well as comment adding. 
+ * It also has toString methods to aid in creating the user interface. 
+ * 
+ * @author Caleb Hottes
+ */
 public class TextBook implements TextBookInterface{
 
     private ArrayList<Post> postsList = new ArrayList<>();
     private int lastID ;
+    /**
+     * constructs a TextBook object and reads the state of the program from the text files. 
+     * Contains some fileIO but all exceptions are caught, which is not nessacarily a good thing. 
+     */
     public TextBook() {
         this.lastID = 0;
         try {
@@ -35,7 +45,6 @@ public class TextBook implements TextBookInterface{
             }
             reader.close();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
@@ -65,6 +74,12 @@ public class TextBook implements TextBookInterface{
     @Override
     public Post removePost(int index) {
         Post postToRemove = this.postsList.get(index);
+        File fileToRemove = new File(postToRemove.getFilename());
+        try {
+            fileToRemove.delete();
+        }catch (SecurityException e) {
+            //ignored
+        }
         this.postsList.remove(index);
         writePostListFile();
         return postToRemove;
@@ -90,6 +105,10 @@ public class TextBook implements TextBookInterface{
     }
 
 
+    /**
+     * This method is just to keep the code DRY (Don't.Repeat.Yourself)
+     * it writes the all the postID's contained in RAM to the file, overwriting the file. 
+     */
     private void writePostListFile() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(TextBookInterface.POST_LIST_FILENAME))) {
             for (Post post : postsList) {
