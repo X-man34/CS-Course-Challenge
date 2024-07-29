@@ -6,7 +6,8 @@
 
 ## Reflection
 1. What OOP concepts do you believe were used in this lab? List the term and give an example of where it was used. 
-There were a two interfaces that were implemented for the post and textbook classes.  There were overloaded constuctors in the post class.
+There were two interfaces that were implemented for the post and textbook classes.
+There were overloaded constuctors in the post class.
 There was inheritance in several of the IO classes where I passed in a FileReader into a buffered reader constructor that took a Reader.
 There was encapsulation becuase instance fields are labled private and only accessed in a limited manner through public methods.
 
